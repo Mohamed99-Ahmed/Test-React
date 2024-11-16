@@ -1,0 +1,9 @@
+/*  the vite will هيشفر مل حاجة الا  */
+
+h2[class *= "aboutH"] {
+    background-color: green;
+}
+
+h2:global(.aboutH){
+    background-color: inherit;
+}
