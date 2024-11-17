@@ -4,27 +4,27 @@ export default function Portfolio() {
   let imgs = [
     {
       id: 1,
-      src: `./img/poert1.png`,
+      src: `./Test-React//img/poert1.png`,
     },
     {
       id: 2,
-      src: `./img/port2.png`,
+      src: `./Test-React//img/port2.png`,
     },
     {
       id: 3,
-      src: `./img/port3.png`,
+      src: `./Test-React//img/port3.png`,
     },
     {
       id: 4,
-      src: `./img/poert1.png`,
+      src: `./Test-React//img/poert1.png`,
     },
     {
       id: 5,
-      src: `./img/port2.png`,
+      src: `./Test-React//img/port2.png`,
     },
     {
       id: 6,
-      src: `./img/port3.png`,
+      src: `./Test-React//img/port3.png`,
     },
   ];
   let [imgSrc, setImgSrc] = useState('');

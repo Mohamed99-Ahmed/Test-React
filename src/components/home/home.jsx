@@ -6,7 +6,7 @@ export default function Home() {
     <>
     <main className='bg-scolor  text-white items-center justify-center h-screen flex flex-col gap-5'>
         <div>
-          <img src="./img/me.jpeg" alt="my img" className={`me w-[200px] rounded-full ${Style.me}`}/>
+          <img src="/Test-React/img/me.jpeg" alt="my img" className={`me w-[200px] rounded-full ${Style.me}`}/>
         </div>
         <h1 className='text-4xl uppercase font-bold'>start framework</h1>
         <div className='flex gap-5 items-center'>
