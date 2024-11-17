@@ -1,33 +1,42 @@
 import React, { useState } from "react";
 import Style from "./Contact.module.css";
 import { useFormik } from "formik";
+import * as Yub from "yup" //because it have many of export
+
 export default function Contact() {
-  function validateForm(values){
-    let errors = {}
-    // if vlaues.name is `` empty string this is error
-    if(!values.name){
-      errors.name = `name is required`
-    }else if(values.name.length < 5){
-      errors.name = `name should more than 5 letter`
-    }
-    // if age is empth or 0 the error will build
-    if(!values.age){
-      errors.age = 'age is required'
-    } 
-    if(!values.email){
-       errors.email = 'email is required'
-    }else if(!/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/gim.test(values.email)){
-      errors.email = `not valid email`
-    }
-    if(!values.password){
-      errors.password = 'password is required'
-      // password must start @ or  # the capital letter then a-z 4 or more letter
-   }else if(!/^(@|#)[A-Z][A-Z a-z]{4,}$/gm.test(values.password)){
-     errors.password = `not valid password`
-   }
-   console.log(formik.errors)
-    return errors
-  }
+  const passowrdReg = /^(@|#)[A-Z][A-Z a-z]{4,}$/;
+  let schema = Yub.object({
+    name: Yub.string().required("name is required").min(3).max(25,"the maximum of name is 25 letter"),
+    age:  Yub.number().required("age should number and requerid"),
+    email : Yub.string().required("email is rquired").email("Not valid email"),
+    password: Yub.string().required("Password is requird").matches(/^(@|#)[A-Z][A-Z a-z]{4,}$/,"not valid messege")
+  })
+  // function validateForm(values){
+  //   let errors = {}
+  //   // if vlaues.name is `` empty string this is error
+  //   if(!values.name){
+  //     errors.name = `name is required`
+  //   }else if(values.name.length < 5){
+  //     errors.name = `name should more than 5 letter`
+  //   }
+  //   // if age is empth or 0 the error will build
+  //   if(!values.age){
+  //     errors.age = 'age is required'
+  //   } 
+  //   if(!values.email){
+  //      errors.email = 'email is required'
+  //   }else if(!/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/gim.test(values.email)){
+  //     errors.email = `not valid email`
+  //   }
+  //   if(!values.password){
+  //     errors.password = 'password is required'
+  //     // password must start @ or  # the capital letter then a-z 4 or more letter
+  //  }else if(!/^(@|#)[A-Z][A-Z a-z]{4,}$/gm.test(values.password)){
+  //    errors.password = `not valid password`
+  //  }
+  //  console.log(formik.errors)
+  //   return errors
+  // }
   let formik = useFormik({
     initialValues:{
       name: '',
@@ -40,7 +49,7 @@ export default function Contact() {
       console.log(values);
 
     },
-    validate: validateForm
+    validationSchema: schema
   })
 
   return (
