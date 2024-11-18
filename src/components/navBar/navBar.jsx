@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import Style from "./navBar.module.css"
 export default function NavBar() {
   let [isOpen, setIsOpen] = useState(true);
 

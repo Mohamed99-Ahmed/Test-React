@@ -62,8 +62,8 @@ export default function Portfolio() {
           ))}
         </div>
         {imgSrc && imgAppear ? (
-          <div className="overlay  bg-white bg-opacity-45 absolute h-[100%] w-screen z-50 flex justify-center items-center"  onClick={(e)=>{Appear(e.target.classList.contains("img"))}}>
-            <img src={imgSrc} className="img block w-[50%]" alt="img3" />
+          <div className="overlay fixed top-0 left-0 right-0   bg-white bg-opacity-45  h-[100%] w-screen z-50 flex justify-center items-center"  onClick={(e)=>{Appear(e.target.classList.contains("img"))}}>
+            <img src={imgSrc} className="img block w-[80%] max-w-[550px]" alt="img3" />
           </div>
         ) : (
           ""

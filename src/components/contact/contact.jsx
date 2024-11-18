@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Style from "./Contact.module.css";
 import { useFormik } from "formik";
 import * as Yub from "yup" //because it have many of export
+import { Link, NavLink } from "react-router-dom";
 
 export default function Contact() {
   const passowrdReg = /^(@|#)[A-Z][A-Z a-z]{4,}$/;
@@ -70,7 +71,9 @@ export default function Contact() {
            {formik.errors.email && formik.touched.email ? <div className="text-red-800 "> * {formik.errors.email}</div>:""}
            <input className="p-2 rounded-md text-black outline-none " type="password" placeholder="Your Password" name="password" value={formik.values.password} onChange={formik.handleChange} onBlur={formik.handleBlur} />
            {formik.errors.password && formik.touched.password ? <div className="text-red-800 "> * {formik.errors.password}</div>:""}
-           <button type="submit"  className="capitalize bg-slate-500 text-white self-start px-4 py-2 rounded-md"  >send messege</button>
+           <button  type="submit"  className="capitalize bg-slate-500 text-white self-start px-4 py-2 rounded-md"  >
+              send messege
+           </button>
         </form>
       </main>
     </>
